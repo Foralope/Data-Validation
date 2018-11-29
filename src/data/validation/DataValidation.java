@@ -3,14 +3,7 @@
  * 28/11/18
  * This program will validate data (hopefully)
  */
-/*public static boolean isIntegerParseInt(String str) {
-    try {
-        Integer.parseInt(str);
-        return true;
-    } catch (NumberFormatException nfe) {}
-    return false;
-}
-*/
+
 package data.validation;
 import java.util.regex.Pattern;
 import javax.swing.*;
@@ -66,6 +59,32 @@ public class DataValidation {
         
         containsAn_a(needsAn_a,input);
         
+        input = JOptionPane.showInputDialog("Enter a string between 5 and 15 characters long that doesn't contain a 'Z'.");
+        betweenFiveAndFifteen = input;
+        while (0 == 0){
+            while (betweenFiveAndFifteen.length() < 5){
+                System.err.println("Your string is too short.");
+                input = JOptionPane.showInputDialog("Enter a string between 5 and 15 characters long that doesn't contain a 'Z'.");
+                betweenFiveAndFifteen = input;
+            }
+            while (betweenFiveAndFifteen.length() > 15){
+                System.err.println("Your string is too long.");
+                input = JOptionPane.showInputDialog("Enter a string between 5 and 15 characters long that doesn't contain a 'Z'.");
+                betweenFiveAndFifteen = input;
+            }
+            while (Pattern.compile("[Z]").matcher(greaterThanSix).find() == true){
+                System.err.println("Your string contains the letter 'Z'. Please remove it.");
+                input = JOptionPane.showInputDialog("Enter a string between 5 and 15 characters long that doesn't contain a 'Z'.");
+                betweenFiveAndFifteen = input;
+            }
+            if (Pattern.compile("[Z]").matcher(greaterThanSix).find() == false){
+                if (betweenFiveAndFifteen.length() < 15){
+                    if (betweenFiveAndFifteen.length() > 5){
+                    }
+                }
+            }
+            //Need way to break out//
+        }
     }
     
 }
