@@ -12,6 +12,24 @@ import javax.swing.*;
  * @author wizwa9381
  */
 public class DataValidation {
+    public static void insideFiveAndFifteen (String betweenFiveAndFifteen, String input) {
+        //Validating a strings length and if it contains a 'Z'
+        input = JOptionPane.showInputDialog("Enter a string between 5 and 15 characters long that doesn't contain a 'Z'.");
+        betweenFiveAndFifteen = input;
+        while (betweenFiveAndFifteen.length() < 5 || betweenFiveAndFifteen.length() > 15 || Pattern.compile("[Z]").matcher(greaterThanSix).find() == true){
+            if (betweenFiveAndFifteen.length() < 5){
+                System.err.println("Your string is too short.");
+            }
+            if (betweenFiveAndFifteen.length() > 15){
+                System.err.println("Your string is too long.");
+            }
+            if (Pattern.compile("[Z]").matcher(greaterThanSix).find() == true){
+                System.err.println("Your string contains the letter 'Z'. Please remove it.");
+            }
+            input = JOptionPane.showInputDialog("Enter a string between 5 and 15 characters long that doesn't contain a 'Z'.");
+            betweenFiveAndFifteen = input;
+        }
+    }
     /**
      * Method to validate data in a string.
      * @param needsAn_a The string that gets tested for if it contains a lowercase 'a'.
@@ -60,21 +78,9 @@ public class DataValidation {
         
         containsAn_a(needsAn_a,input);
         
-        input = JOptionPane.showInputDialog("Enter a string between 5 and 15 characters long that doesn't contain a 'Z'.");
-        betweenFiveAndFifteen = input;
-        while (betweenFiveAndFifteen.length() < 5 || betweenFiveAndFifteen.length() > 15 || Pattern.compile("[Z]").matcher(greaterThanSix).find() == true){
-            if (betweenFiveAndFifteen.length() < 5){
-                System.err.println("Your string is too short.");
-            }
-            if (betweenFiveAndFifteen.length() > 15){
-                System.err.println("Your string is too long.");
-            }
-            if (Pattern.compile("[Z]").matcher(greaterThanSix).find() == true){
-                System.err.println("Your string contains the letter 'Z'. Please remove it.");
-            }
-            input = JOptionPane.showInputDialog("Enter a string between 5 and 15 characters long that doesn't contain a 'Z'.");
-            betweenFiveAndFifteen = input;
-        }
+        insideFiveAndFifteen(betweenFiveAndFifteen, input);
+        
+        
     }
     
 }
